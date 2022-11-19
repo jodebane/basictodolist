@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html langauge="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale-1.0">
+        <link rel="stylesheet" href="todolistcss.css">
+        <title>Todolist</title>
+        
+    </head>
+
+    <body>
+
+        <h1>To Do List</h1>
+        <div class="container">
+            <input id="inputfield" type="text"><button id="addToDo" onclick="addnew()">Add</button>
+            <div class="tO" id="toDoContainers">
+                <ul id="todolistitems">
+                </ul>
+            </div>
+        </div>
+
+    <script>
+
+
+       const newcontainer = document.getElementById("toDoContainers");
+
+     //function removeItem(item){
+       // var itemToRemove = document.getElementById(item);
+       // itemToRemove.parentNode.removeChild(itemToRemove);
+
+
+       //gets number of list items in todolist
+
+       //adds list item to list
+
+     //  function deleteItem(paramitem){
+
+       // var element = document.getElementById(paramitem);
+       // element.remove();
+       //}
+
+       var myNodelist = document.getElementsByTagName("li");
+       var i;
+
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+}
+
+    var close = document.getElementsByClassName("close");
+    var i;
+    for (i = 0; i < close.length; i++) {
+         close[i].onclick = function() {
+         var div = this.parentElement;
+         div.style.display = "none";
+  }
+}
+       function addnew(){
+            let numb = document.getElementById("todolistitems").childElementCount;
+            var listitem = document.createElement("li");
+            var reallist = document.getElementById("todolistitems");
+            var inputvar = document.getElementById("inputfield").value;
+            var node = document.createTextNode(inputvar);
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            listitem.appendChild(span);
+            let numbvar = numb +1;
+
+           
+
+
+            listitem.appendChild(node);
+            listitem.setAttribute('id', numbvar);
+            ///listitem.addEventListener('click', deleteItem(listitem));
+            
+            reallist.appendChild(listitem);  
+            var inputvar = document.getElementById("inputfield").value="";
+        //  node.appendChild(document.createTextNode(inputvar));
+        /// document.getElementById("toDoContainers").innerHTML=inputvar;
+
+        
+     for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+    }
+  }
+}
+       
+  
+
+    </script>
+
+    </body>
+</html>
